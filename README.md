@@ -40,5 +40,5 @@ having a salt-minion on the VM.
 ## Setup
 
 Lets go ahead and explain how we've setup our project. Lets take a look at the
-[Vagrantfile](Vagrantfile):
+``Vagrantfile`` ([view file](Vagrantfile)):
 
