@@ -184,7 +184,9 @@ packages, configures files, etc) has a ``top.sls`` file in the ``file_roots``
 directory. Because you're only managing this one Vagrant VM isntead of several
 servers, the ``top.sls`` file is very straight forward (but still required).
 
-```yaml saltstack/salt/top.sls
+File ``saltstack/salt/top.sls``:
+
+```yaml 
 base:
     '*':
         - common
@@ -198,9 +200,9 @@ VM, ``*`` is a safe match regardless of what your VM is named.
 ``saltstack/salt/common.sls`` file or ``saltstack/salt/common/init.sls`` file.
 
 If you added another set of states in another file like ``saltstack/salt/apache.sls``
-you would have a top.sls file that looked like this:
+you would have a ``saltstack/salt/top.sls`` file that looked like this:
 
-```yaml saltstack/salt/top.sls
+```yaml 
 base:
     '*':
         - common
