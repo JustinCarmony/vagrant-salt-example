@@ -16,12 +16,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.minion_config = "saltstack/etc/minion"
 
     # On provision, run state.highstate (which installs packages, services, etc).
-    # Highstate basicly means "compare the VMs current machine state against 
+    # Highstate basically means "compare the VMs current machine state against 
     # what it should be and make changes if necessary".
     salt.run_highstate = true
     
     # What version of salt to install, and from where.
-    # Because by default it will install the latest, its better to explicetly
+    # Because by default it will install the latest, its better to explicitly
     # choose when to upgrade what version of salt to use.
 
     # I also prefer to install from git so I can specify a version.
