@@ -16,7 +16,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.minion_config = "saltstack/etc/minion"
 
     # On provision, run state.highstate (which installs packages, services, etc).
-    # Highstate basicly means "comapre the VMs current machine state against 
+    # Highstate basicly means "compare the VMs current machine state against 
     # what it should be and make changes if necessary".
     salt.run_highstate = true
     
