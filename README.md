@@ -115,7 +115,7 @@ directories in the ``saltstack/`` folder. Inside I'll have 3 directories:
   - ``saltstack/etc/`` - Directory for salt configation files, here is where I 
     like to keep my minion config (master configs too if using a Master/Minion
     setup).
-  - ``saltstack/pillar/`` - Directory for Salt's ``pillar`` data ([see salt's pillar docs](http://salt.readthedocs.org/en/latest/topics/pillar/)). 
+  - ``saltstack/pillar/`` - Directory for Salt's ``pillar`` data ([see salt's pillar docs](http://docs.saltstack.com/en/latest/topics/pillar/)). 
     You will likely not need this when first starting out with Vagrant & Salt.
 
   - ``saltstack/salt/`` - Main directory for your ``top.sls`` file and other
@@ -175,7 +175,7 @@ pillar data. Instead lets have this point to ``/vagrant/saltstack/pillar``.
 
 Salt can be configured for different environments, i.e. ``dev``, ``stage``, 
 ``test``, ``prod``, etc. The default one is ``base``. If you want to learn
-more about this you can read up on it [at the docs](http://salt.readthedocs.org/en/latest/ref/configuration/minion.html?highlight=environments).
+more about this you can read up on it [at the docs](http://docs.saltstack.com/en/latest/ref/configuration/minion.html?highlight=environments).
 
 ## Top.sls
 
@@ -215,8 +215,8 @@ Now that you have your project setup, you can call ``vagrant up`` to provision
 your VM, install Salt, and have it run ``salt.highstate``. If it is already
 running, you can just use ``vagrant provision`` to re-run the highstate.
 
-From here, everything in the [salt documentation on Salt States](http://salt.readthedocs.org/en/latest/topics/tutorials/starting_states.html)
-should work for you. The [list of available salt states](http://salt.readthedocs.org/en/latest/ref/states/all/index.html) 
+From here, everything in the [salt documentation on Salt States](http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html)
+should work for you. The [list of available salt states](http://docs.saltstack.com/en/latest/ref/states/all/index.html) 
 is really helpful.
 
 ## Debugging
