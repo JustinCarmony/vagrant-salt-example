@@ -7,11 +7,11 @@ assumes some basic knowledge of how Salt works, this repository is to show the
 most basic setup for using Vagrant & Salt.
 
 You can just copy the files and get started, or you can read below for a little
-explination of how & why it has been setup the way it has.
+explanation of how & why it has been setup the way it has.
 
 ## Basic Overview
 
-Vagrant is a tool for auotmating virtual machines for development purposes. 
+Vagrant is a tool for automating virtual machines for development purposes. 
 Vagrant will connect to a "provider" such as [VirtualBox](https://www.virtualbox.org/)
 and create a virtual machine. It will mount folders, setup networking, and
 anything else the server needs. Then it can use a "provisioner" like Salt to
@@ -60,12 +60,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     salt.minion_config = "saltstack/etc/minion"
 
     # On provision, run state.highstate (which installs packages, services, etc).
-    # Highstate basicly means "comapre the VMs current machine state against 
+    # Highstate basicly means "compare the VMs current machine state against 
     # what it should be and make changes if necessary".
     salt.run_highstate = true
     
     # What version of salt to install, and from where.
-    # Because by default it will install the latest, its better to explicetly
+    # Because by default it will install the latest, its better to explicitly
     # choose when to upgrade what version of salt to use.
 
     # I also prefer to install from git so I can specify a version.
@@ -97,8 +97,8 @@ For masterless mode you will want four config values:
     pick which version you wish to install.
   _ ``salt.install_args`` - You can specify which branch or tag to install from
     git. I believe you always should be able to ``vagrant destroy`` and 
-    ``vagrant up`` your instance at any time. Incase the latest distrubtion 
-    changes for your OS, its best to explicitely declare which version to use. 
+    ``vagrant up`` your instance at any time. Incase the latest distribution 
+    changes for your OS, its best to explicitly declare which version to use. 
     You can than always update to a newer version by changing this value to the
     new version you want.
 
@@ -115,7 +115,7 @@ directories in the ``saltstack/`` folder. Inside I'll have 3 directories:
   - ``saltstack/etc/`` - Directory for salt configation files, here is where I 
     like to keep my minion config (master configs too if using a Master/Minion
     setup).
-  - ``saltstack/pillar/`` - Directory for Salt's ``pillar`` data ([see salt's pillar docs](http://salt.readthedocs.org/en/latest/topics/pillar/)). 
+  - ``saltstack/pillar/`` - Directory for Salt's ``pillar`` data ([see salt's pillar docs](http://docs.saltstack.com/en/latest/topics/pillar/)). 
     You will likely not need this when first starting out with Vagrant & Salt.
 
   - ``saltstack/salt/`` - Main directory for your ``top.sls`` file and other
@@ -175,13 +175,13 @@ pillar data. Instead lets have this point to ``/vagrant/saltstack/pillar``.
 
 Salt can be configured for different environments, i.e. ``dev``, ``stage``, 
 ``test``, ``prod``, etc. The default one is ``base``. If you want to learn
-more about this you can read up on it [at the docs](http://salt.readthedocs.org/en/latest/ref/configuration/minion.html?highlight=environments).
+more about this you can read up on it [at the docs](http://docs.saltstack.com/en/latest/ref/configuration/minion.html?highlight=environments).
 
 ## Top.sls
 
 Every salt environment that uses states (which a state is how salt installs 
 packages, configures files, etc) has a ``top.sls`` file in the ``file_roots``
-directory. Because you're only managing this one Vagrant VM isntead of several
+directory. Because you're only managing this one Vagrant VM instead of several
 servers, the ``top.sls`` file is very straight forward (but still required).
 
 File ``saltstack/salt/top.sls``:
@@ -193,7 +193,7 @@ base:
 ```
 
 We have ``base`` because that is the default. Next comes the ``'*':`` because 
-we want to apply some state files to all the servers. Sicne you only have one
+we want to apply some state files to all the servers. Since you only have one
 VM, ``*`` is a safe match regardless of what your VM is named.
 
 ``- common`` says I want to include the set of states stored in either
@@ -215,8 +215,8 @@ Now that you have your project setup, you can call ``vagrant up`` to provision
 your VM, install Salt, and have it run ``salt.highstate``. If it is already
 running, you can just use ``vagrant provision`` to re-run the highstate.
 
-From here, everything in the [salt documentation on Salt States](http://salt.readthedocs.org/en/latest/topics/tutorials/starting_states.html)
-should work for you. The [list of available salt states](http://salt.readthedocs.org/en/latest/ref/states/all/index.html) 
+From here, everything in the [salt documentation on Salt States](http://docs.saltstack.com/en/latest/topics/tutorials/starting_states.html)
+should work for you. The [list of available salt states](http://docs.saltstack.com/en/latest/ref/states/all/index.html) 
 is really helpful.
 
 ## Debugging
